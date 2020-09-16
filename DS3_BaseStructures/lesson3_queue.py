@@ -157,13 +157,13 @@ for i in range(10):
         if(not printer.busy()) and (not printQueue.isEmpty()):
             nexttask = printQueue.dequeue()
             waitingtimes.append(nexttask.waitTime(currentSecond))
-            printer.startNew(nexttask)
+            printer.startNext(nexttask)
 
         printer.tick()
 
-        # 平均等待时间
-        averageWatingTime = sum(waitingtimes)/len(waitingtimes)
-        print("平均等待时间 %6.2f秒，剩下%3d任务"%(averageWatingTime,printQueue.size()))
+    # 平均等待时间
+    averageWatingTime = sum(waitingtimes)/len(waitingtimes)
+    print("平均等待时间 %6.2f秒，剩下%3d任务"%(averageWatingTime,printQueue.size()))
 
 
         
